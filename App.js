@@ -71,65 +71,67 @@ export default class App extends Component {
         </View>
       );
     }
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}>
+    else {
+      return (
+        <View style={styles.container}>
+          <View style={styles.header}>
 
 
-          <Text style={styles.text1}>TOP</Text>
-          <Text style={styles.text1}>NEWS</Text>
+            <Text style={styles.text1}>TOP</Text>
+            <Text style={styles.text1}>NEWS</Text>
 
-        </View>
-        <View style={styles.news}>
-          <FlatList
-            data={this.state.news}
-            renderItem={({ item }) => {
-              return (
-                <TouchableWithoutFeedback onPress={() => Linking.openURL(item.url)}>
-                  <View style={{
-                    width: width - 50,
-                    height: 180,
-                    backgroundColor: "#fff",
-                    marginBottom: 15,
-                    borderRadius: 15
+          </View>
+          <View style={styles.news}>
+            <FlatList
+              data={this.state.news}
+              renderItem={({ item }) => {
+                return (
+                  <TouchableWithoutFeedback onPress={() => Linking.openURL(item.url)}>
+                    <View style={{
+                      width: width - 50,
+                      height: 180,
+                      backgroundColor: "#fff",
+                      marginBottom: 15,
+                      borderRadius: 15
 
-                  }}>
-                    <Image source={{ uri: item.urlToImage }}
-                      style={[StyleSheet.absoluteFill]
-                      } />
-                    <View style={styles.gradient}>
-                      <Text style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        color: '#fff',
-                        fontSize: 20,
-                        padding: 5
-                      }}>
-                        {item.title}
-                      </Text>
-                      <Text style={{
-                        fontSize: 16,
-                        color: '#fff',
-                        position: 'absolute',
-                        top: 0,
-                        right: 0,
-                        padding: 5,
-                        fontWeight: 'bold'
+                    }}>
+                      <Image source={{ uri: item.urlToImage }}
+                        style={[StyleSheet.absoluteFill]
+                        } />
+                      <View style={styles.gradient}>
+                        <Text style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          color: '#fff',
+                          fontSize: 20,
+                          padding: 5
+                        }}>
+                          {item.title}
+                        </Text>
+                        <Text style={{
+                          fontSize: 16,
+                          color: '#fff',
+                          position: 'absolute',
+                          top: 0,
+                          right: 0,
+                          padding: 5,
+                          fontWeight: 'bold'
 
-                      }}
-                        onPress={() => {
-                          this.sharearticle(item.url)
-                        }}>Share</Text>
+                        }}
+                          onPress={() => {
+                            this.sharearticle(item.url)
+                          }}>Share</Text>
+                      </View>
                     </View>
-                  </View>
-                </TouchableWithoutFeedback>
-              )
-            }}
+                  </TouchableWithoutFeedback>
+                )
+              }}
 
-          />
+            />
+          </View>
         </View>
-      </View>
-    );
+      );
+    }
   }
 }
 
