@@ -5,7 +5,7 @@
  * @format
  * @flow strict-local
  */
-
+// android:usesCleartextTraffic="true"
 import React, { Component } from 'react';
 import {
   SafeAreaView,
